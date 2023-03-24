@@ -1,3 +1,3 @@
 public class CONG {
-    String CON = "Congratulations That's True";
+  final static String CON = "Congratulations That's True";
 }
