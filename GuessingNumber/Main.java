@@ -10,44 +10,47 @@ public static void main(String[] args) {
     // CONG cong = new CONG();
     int replay;
     int counter = 1;
-    System.out.println("Welcome in Guessing Number Game\n\n");
+    System.out.println("\nWelcome in Guessing Number Game\n");
+    System.out.println("You Should use setRange n1 n2 to control on the Range For example \nsetRange 10 50");
+    int RandomNO = RandomN.SetRange();
     while(true && Score.score > 0){
     if(counter == 1){
-        startAndEnd(0 , 80);
+        startAndEnd(RandomN.min , RandomN.max);
         replay = scnr.nextInt();
         counter++;
     }
     else{
         System.out.println("Try again : \n\n");
         replay = scnr.nextInt();
+        // continue;
 
     }
-    if(replay == RandomN.NumberToGuess){
+    if(replay == RandomNO){
         System.out.println(CONG.CON  + " And Your Score is"+ Score.score);
         break;
     }
-    else if(replay > RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) < 15 ){
+    else if(replay > RandomNO && Math.abs(replay - RandomNO) < 15 ){
         System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(10) +"\n\n");
     }
-    else if(replay > RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) < 30 ){
+    else if(replay > RandomNO && Math.abs(replay - RandomNO) < 30 ){
         System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(20) +"\n\n");
     }
-    else if(replay > RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) < 45 ){
+    else if(replay > RandomNO && Math.abs(replay - RandomNO) < 45 ){
         System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(30) +"\n\n");
     }
-    else if(replay > RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) > 44 ){
+    else if(replay > RandomNO && Math.abs(replay - RandomNO) > 44 ){
         System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(35) +"\n\n");
     }
-    else if(replay < RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) < 15 ){
+    else if(replay < RandomNO && Math.abs(replay - RandomNO) < 15 ){
         System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(10) +"\n\n");
     }
-    else if(replay < RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) < 30 ){
+    else if(replay < RandomNO && Math.abs(replay - RandomNO) < 30 ){
         System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(20) +"\n\n");
     }
-    else if(replay < RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) < 45 ){
+    else if(replay < RandomNO && Math.abs(replay - RandomNO) < 45 ){
         System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(30) +"\n\n");
     }
-    else if(replay < RandomN.NumberToGuess && Math.abs(replay - RandomN.NumberToGuess) > 44 ){
+    else if(replay < RandomNO && Math.abs(replay - RandomNO) > 44 ){
         System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(35) +"\n\n");
     }
     }
