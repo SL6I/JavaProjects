@@ -31,6 +31,8 @@ public static void main(String[] args) {
     }
     if(replay == RandomNO){
         System.out.println(CONG.CON  + " And Your Score is "+ Score.score+"\nNow Write Your Name down here to put You in the Winners List");
+        name = scnr.nextLine();
+        fille(name);
         break;
     }
     else if(replay > RandomNO){
@@ -43,20 +45,20 @@ public static void main(String[] args) {
     if(Score.score<=0){
         System.out.println("OOPs You lose Because Your Score is: "+Score.score);
     }
-    
-   public static void fille(){
+    scnr.close();
+}
+   public static void fille(String s ){
         try {
             FileWriter writer = new FileWriter("The latest.txt");
-            name = scnr.nextLine();
-            writer.append(name);
+            writer.append(s);
             writer.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-}
+
 
     
-    scnr.close();
+  
 }
