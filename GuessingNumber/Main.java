@@ -1,13 +1,13 @@
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main{ 
-    static Scanner scnr = new Scanner(System.in);
+    
     public static void startAndEnd(int start , int end ){
         System.out.print("Let's begin and guess the number between "+start+" - "+end+" : \n\n");
     }
-    static String name;
 public static void main(String[] args) {
    
     // RandomN rndmn = new RandomN();
@@ -17,6 +17,7 @@ public static void main(String[] args) {
     System.out.println("\nWelcome in Guessing Number Game\n");
     System.out.println("You Should use setRange n1 n2 to control on the Range For example \nsetRange 10 50");
     int RandomNO = RandomN.SetRange();
+    Scanner scnr = new Scanner(System.in);
     while(true && Score.score > 0){
     if(counter == 1){
         startAndEnd(RandomN.min , RandomN.max);
@@ -27,11 +28,12 @@ public static void main(String[] args) {
         System.out.println("Try again : \n\n");
         replay = scnr.nextInt();
         // continue;
-
+        // scnr.close();
     }
     if(replay == RandomNO){
+        Scanner input = new Scanner(System.in);
         System.out.println(CONG.CON  + " And Your Score is "+ Score.score+"\nNow Write Your Name down here to put You in the Winners List");
-        name = scnr.nextLine();
+        String name = input.nextLine();
         fille(name);
         break;
     }
@@ -45,18 +47,18 @@ public static void main(String[] args) {
     if(Score.score<=0){
         System.out.println("OOPs You lose Because Your Score is: "+Score.score);
     }
-    scnr.close();
+    // scnr.close();
 }
-   public static void fille(String s ){
-        try {
-            FileWriter writer = new FileWriter("The latest.txt");
-            writer.append(s);
-            writer.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+public static void fille(String s) {
+    try {
+        FileWriter writer = new FileWriter("The latest.txt", true);
+        writer.write(s + System.lineSeparator());
+        writer.close();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
+
 
 
     
