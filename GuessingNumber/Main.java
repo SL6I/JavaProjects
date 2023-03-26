@@ -1,11 +1,15 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main{ 
+    static Scanner scnr = new Scanner(System.in);
     public static void startAndEnd(int start , int end ){
         System.out.print("Let's begin and guess the number between "+start+" - "+end+" : \n\n");
     }
+    static String name;
 public static void main(String[] args) {
-    Scanner scnr = new Scanner(System.in);
+   
     // RandomN rndmn = new RandomN();
     // CONG cong = new CONG();
     int replay;
@@ -26,37 +30,33 @@ public static void main(String[] args) {
 
     }
     if(replay == RandomNO){
-        System.out.println(CONG.CON  + " And Your Score is"+ Score.score);
+        System.out.println(CONG.CON  + " And Your Score is "+ Score.score+"\nNow Write Your Name down here to put You in the Winners List");
         break;
     }
-    else if(replay > RandomNO && Math.abs(replay - RandomNO) < 15 ){
-        System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(10) +"\n\n");
+    else if(replay > RandomNO){
+        System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(0.9,RandomNO,replay) +"\n\n");
     }
-    else if(replay > RandomNO && Math.abs(replay - RandomNO) < 30 ){
-        System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(20) +"\n\n");
-    }
-    else if(replay > RandomNO && Math.abs(replay - RandomNO) < 45 ){
-        System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(30) +"\n\n");
-    }
-    else if(replay > RandomNO && Math.abs(replay - RandomNO) > 44 ){
-        System.out.println("Your Number is Higher than Guess Number And Your Score now "+Score.Score(35) +"\n\n");
-    }
-    else if(replay < RandomNO && Math.abs(replay - RandomNO) < 15 ){
-        System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(10) +"\n\n");
-    }
-    else if(replay < RandomNO && Math.abs(replay - RandomNO) < 30 ){
-        System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(20) +"\n\n");
-    }
-    else if(replay < RandomNO && Math.abs(replay - RandomNO) < 45 ){
-        System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(30) +"\n\n");
-    }
-    else if(replay < RandomNO && Math.abs(replay - RandomNO) > 44 ){
-        System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(35) +"\n\n");
+    else if(replay < RandomNO){
+        System.out.println("Your Number is Lower than Guess Number And Your Score now "+Score.Score(0.9,RandomNO,replay) +"\n\n");
     }
     }
     if(Score.score<=0){
         System.out.println("OOPs You lose Because Your Score is: "+Score.score);
     }
-    scnr.close();
+    
+   public static void fille(){
+        try {
+            FileWriter writer = new FileWriter("The latest.txt");
+            name = scnr.nextLine();
+            writer.append(name);
+            writer.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
+
+    
+    scnr.close();
 }
