@@ -24,7 +24,7 @@ public class Bot {
                 s100 = Math.abs(100 - Score.Score(0.9,random,bot));
                 bot += s100;
             }
-            if(bot == random){
+            else if(bot == random){
                 System.out.println("YYYYYEEEESSSS I DID IT The Number was "+bot+" And My Score is "+Score.score);
                 
             }

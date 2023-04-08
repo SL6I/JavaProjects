@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 public class Main{ 
     
-    public static void startAndEnd(int start , int end ){
+    public static void startAndEnd(int start , int end,int RandomNO ){
         System.out.print("Let's begin and guess the number between "+start+" - "+end+" : \nDo You want a SAAD bot be a player?\nType(y/n)");
-        
+        Bot bot = new Bot(start, end);
+        Bot.guessingNumber(start, end, RandomNO);
+
     }
 public static void main(String[] args) {
    
@@ -21,7 +23,7 @@ public static void main(String[] args) {
     Scanner scnr = new Scanner(System.in);
     while(true && Score.score > 0){
     if(counter == 1){
-        startAndEnd(RandomN.min , RandomN.max);
+        startAndEnd(RandomN.min , RandomN.max,RandomNO);
         replay = scnr.nextInt();
         counter++;
     }
