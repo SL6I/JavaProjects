@@ -26,7 +26,7 @@ public class Bot {
             }
             else if(bot == random){
                 System.out.println("YYYYYEEEESSSS I DID IT The Number was "+bot+" And My Score is "+Score.score);
-                
+                break;
             }
         }
     }
