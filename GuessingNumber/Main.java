@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Main{ 
     
     public static void startAndEnd(int start , int end ){
-        System.out.print("Let's begin and guess the number between "+start+" - "+end+" : \n\n");
+        System.out.print("Let's begin and guess the number between "+start+" - "+end+" : \nDo You want a SAAD bot be a player?\nType(y/n)");
+        
     }
 public static void main(String[] args) {
    
